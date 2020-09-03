@@ -1,0 +1,16 @@
+Develpoed by Guido Van Rossum in 1990.
+
+Fetures of Python
+1. Written like human writting.
+2. Takes less time to learn due to easy grammer.
+3. No charge
+4. Seeks concision.
+
+What Python can do
+1. System Utility
+2. GUI Programming: ex) Tkinter
+3. Combining with C/C++
+4. Web Programming
+5. IOT: ex) controling Raspberrt Pi System
+6. Various module: ex) NumPy(Numercial calculation), Sybase(For addressing database),
+Pandas(analyzing data), pickle(Save and retrieve the materials that Python uses without modification.)
