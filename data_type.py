@@ -114,7 +114,7 @@ li1.sort(reverse = True) #알파벳 역순으로
 print(li1)
 
 li2 = ['a', 'c', 'd', 'r', 'h']
-b = sorted(li2) #아예 li2자체를 바꾸지 않고, 할당을 해줘서 원본은 유지하고 정렬된 것은 b에 있다.
+b = sorted(li2) #아예 li2자체를 바꾸지 않고, 할당을 해줘서 b가 정렬되고, 원본은 유지된다.
 print(li2)
 print(b)
 
