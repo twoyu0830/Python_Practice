@@ -208,6 +208,63 @@ print(a | b) #합집합
 print(a - b) #차집합
 print(a ^ b) #대칭차집합(합집합 - 교집합)
 
+sub = {'kor': 80, 'eng': 90, 'mat': 77}
+print(sub['kor']) #딕셔너리의 특정 키의 값에 접근하는 방법
+
+al = [['a', 'b'], ['c', 'd'], ['e', 'f']] #리스트 안의 요소들이 리스트(2차원)
+print(dict(al)) #앞의 'a'가 키로, 'b'가 값으로 들어간다.
+
+AL = (('a', 'b'), ('c', 'd'), ('e', 'f')) #튜플 안의 요소들이 튜플(2차원)
+print(dict(AL)) #앞의 'a'가 키로, 'b'가 값으로 들어간다.
+
+al_ = ['ab', 'bc', 'ca'] #문자열 리스트
+print(dict(al_)) #각각의 문자열을 쪼개 각각 키, 값으로 들어감
+
+sub = {'kor': 80, 'eng': 90, 'mat': 77}
+sub['tot'] = 247 #딕셔너리에 새로운 값 추가(대괄호 사용하되, 인덱스는 사용X 키로 사용)
+print(sub)
+
+sub = {'kor': 80, 'eng': 90, 'mat': 77}
+sub2 = {'kor2': 88, 'eng2': 99, 'mat2': 77}
+sub2.update(sub) #딕셔너리 결합하기(주가 되는 것이 앞에)
+print(sub2)
+
+sub = {'kor': 80, 'eng': 90, 'mat': 77}
+del sub['mat']
+print(sub)
+
+sub = {'kor': 80, 'eng': 90, 'mat': 77}
+sub.clear() #딕셔너리 안의 모든 항목 삭제
+print(sub)
+
+sub = {'kor': 80, 'eng': 90, 'mat': 77}
+print('kor' in sub) #딕셔너리 안의 항목 존재 여부 확인
+
+sub = {'kor': 80, 'eng': 90, 'mat': 77}
+sub.get('tot', 'XXX') #get함수(딕셔너리에 해당 값 있으면 앞에것 출력, 없으면 뒤에것 출력), 해당 값이 딕셔너리에 없으므로 'XXX'나옴
+sub.get('kor', 'XXX') #해당 값이 딕셔너리에 있으므로 80나옴
+
+sub = {'kor': 80, 'eng': 90, 'mat': 77}
+list(sub.keys()) #보통 이렇게 리스트화 시켜서 사용한다.
+list(sub.values())
+list(sub.items())
+
+sub = {'kor': 80, 'eng': 90, 'mat': 77}
+m = list(sub.items())
+print(m) #m을 먼저 찍어봐야한다.(m은 딕셔너리를 기반으로 만들어졌기 때문에, 항목들의 순서가 무작위로 나오기 때문.
+print(m[2][0]) #눈으로 리스트 순서를 확인한 다음에 호출한다.
+
+sub = {'kor': 80, 'eng': 90, 'mat': 77}
+sub1 = sub.copy() #원본유지
+sub['tot'] = 247
+print(sub)
+print(sub1) #원본유지
+
+
+
+
+
+
 
 
 
