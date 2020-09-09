@@ -1,2 +1,2 @@
-# Python_Practice
+# python_practice
 Repositary for practicing Python
