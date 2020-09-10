@@ -266,6 +266,59 @@ print(sub1) #원본유지
 
 
 
+ju = '931223-167453' #나이 구하기
+year = int(ju[0:2]) #문자열 슬라이싱
+age = 2020 - 1900 - year + 1
+print(age)
+
+ju = '931223-167453' #태어난 달 구하기
+month = ju[2:4]
+print(month + '월')
+
+ju = '931223-167453' #태어난 날짜 구하기
+day = ju[4:6]
+print(day + '일')
+
+ju = '931223-167453' #성별 구하기
+if int(ju[7]) % 2 == 0:
+    print('여자입니다.')
+else:
+    print('남자입니다.')
+
+ju = '931223-167453' #몇 년대 생인지 구하기
+if int(ju[7]) in [1, 2]:
+    print('1900년대 생입니다.')
+else:
+    print('2000년대 생입니다.')
+
+ju = '031223-367453' #나이 구하기 최종
+if int(ju[7]) in [1, 2]:
+    print(2020 - 1900 - int(ju[0:2]) + 1)
+else:
+    print(2020 - 2000 - int(ju[0:2]) + 1)
+
+s = '1-2-3-4-5-6-7-8-9' #문자열 안의 숫자들 합 구하기(map함수 이용)
+t = s.split('-')
+t = list(map(int, t)) #출처: https://shayete.tistory.com/entry/리스트의-문자열을-int-형태로-변환 [샤의 공간]
+print(sum(t))
+
+s = '1-2-3-4-5-6-7-8-9' #문자열 안의 숫자들 합 구하기(for문 이용)
+t = s.split('-')
+tot = 0
+for i in t:
+    tot += int(i)
+print(tot)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
