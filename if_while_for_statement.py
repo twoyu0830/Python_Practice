@@ -55,19 +55,68 @@ for i in range(1, 10): #구구단
         print(str(i) + '*' + str(k) + '=' + str(i * k))
 
 star = '*' #for과 while형식 짬뽕시켜 만든 별탑
-for i in range(5):
-    print(star)
-    star += '*'
-
+for i in range(5): # *
+    print(star)    # **
+    star += '*'    # ***
+                   # ****
+                   # *****
 for i in range(5): #중첩 for문 이용 별탑
     for k in range(i + 1):
         print('*', end = '')
     print()
 
-for i in range(5): #간단한 for문 이용 별탑
-    print('*' * (i + 1))
+for i in range(1, 6): #간단한 for문 이용 별탑
+    print('*' * i)
 
 star = '*' #while문 이용 별탑
 while len(star) <= 5:
     print(star)
     star += '*'
+
+for i in range(1, 6): #별탑 위아래 뒤집기
+    for k in range(1, 7 - i):
+        print('*', end = '')
+    print()
+
+for i in range(5, 0, -1): #간단한 별탑 위아래 뒤집기
+    print('*' * i)
+
+
+ for i in range(1, 6): #별탑 좌우로 뒤집기
+     for k in range(1, 6 - i):
+         print(' ', end = '') 
+     for j in range(1, 1 + i ):
+         print('*', end = '')
+     print()
+
+for i in range(5, 0, -1): #간단한 별탑 좌우로 뒤집기
+    print(' ' * (i - 1), '*' * (6 - i))
+ 
+ for i in range(1, 5): #1357별탑
+     for k in range(1, 5 - i):
+         print(' ', end = '')
+     for j in range(1, i * 2 ):
+         print('*', end = '')
+     for u in range(1, 5 - i):
+         print(' ', end = '')
+     print()
+
+ for i in range(1, 5): #간단한 1357별탑
+     print(' ' * (4 - i), '*' * (i * 2 -1))
+
+
+for i in range(1, 6): #1,12, 123, 1234, 12345탑
+    for k in range(1, 1 + i):
+        print(k , end = '')
+    print()
+
+for i in range(1, 6): #1,22, 333, 4444, 55555탑
+    for k in range(1, 1 + i):
+        print(i, end = '')
+    print()
+
+for i in range(1, 6):
+    print(i * )
+        
+ 
+ 
