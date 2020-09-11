@@ -114,9 +114,5 @@ for i in range(1, 6): #1,22, 333, 4444, 55555탑
     for k in range(1, 1 + i):
         print(i, end = '')
     print()
-
-for i in range(1, 6):
-    print(i * )
-        
  
  
