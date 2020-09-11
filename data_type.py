@@ -307,7 +307,7 @@ t = s.split('-')
 tot = 0
 for i in t:
     tot += int(i)
-print(tot)
+print(tot) 
 
 
 
