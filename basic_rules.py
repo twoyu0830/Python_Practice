@@ -9,3 +9,4 @@ for i in range(5):
 
 age = int(input("Enter your age.")) #input함수는 기본적으로 문자열을 반환한다.
 print(age + 5) #이런 연산이 되게 하려면 int로 casting해야 한다.
+
