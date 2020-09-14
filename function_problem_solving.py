@@ -49,7 +49,7 @@ def gugudan(dan): #2)메인에서 입력받기
     for i in range(1, 10):
         print(dan, '*', i, '=', dan * i )
 dan = int(input('단을 입력하세요.'))
-print(gugudan(dan))
+gugudan(dan)
 
 #8. 두 수를 입력 받아 두 수 사이의 수들의 합을 구하시오.(함수 사용)
 def my_fun(start, end):
@@ -59,7 +59,7 @@ def my_fun(start, end):
     print ('합계', sum)
 start = int(input('시작 값 : '))
 end= int(input('끝 값 : '))
-print(my_fun(start, end))
+my_fun(start, end)
 
 #9. 입력한 숫자만큼 별을 출력하시오.
 def my_fun(start):
