@@ -38,7 +38,59 @@ print(d.hour)
 print(d.minute)
 print(d.second)
 
+#7. 함수를 이용하여 단을 입력받아 해당 단의 구구단을 출력하는 프로그램을 작성하시오.
+def gugudan(): #1)인자 없어도 된다. 껍대기만 함수
+    dan = int(input('단을 입력하세요.'))
+    for i in range(1, 10):
+        print(dan, '*', i, '=', dan * i )
+print(gugudan())
+
+def gugudan(dan): #2)메인에서 입력받기
+    for i in range(1, 10):
+        print(dan, '*', i, '=', dan * i )
+dan = int(input('단을 입력하세요.'))
+print(gugudan(dan))
+
+#8. 두 수를 입력 받아 두 수 사이의 수들의 합을 구하시오.(함수 사용)
+def my_fun(start, end):
+    sum=0
+    for i in range(start, end + 1):
+        sum = sum + i
+    print ('합계', sum)
+start = int(input('시작 값 : '))
+end= int(input('끝 값 : '))
+print(my_fun(start, end))
+
+#9. 입력한 숫자만큼 별을 출력하시오.
+def my_fun(start):
+    return '*' * start 
+start = int(input('별의 수: '))
+print(my_fun(start))
 
 
+#10. 두 수를 입력받아 큰 수를 출력하시오.
+def comparison(f, s):
+    if f > s:
+        return f
+    elif f == s:
+        return 'Same'
+    else:
+        return s
+f = int(input('f 값: '))
+s = int(input('s 값: '))
+print(comparison(f, s))
 
-
+#11. 세 수를 입력받아 가장 큰 값을 출력하시오.
+def big(f, s, t):
+    if f > s and f > t:
+        return f
+    elif s > f and s > t:
+        return s
+    elif t > f and t > s:
+        return t
+    else:
+        return 'none'
+f = int(input('값을 입력하시오. '))
+s = int(input('값을 입력하시오. '))
+t = int(input('값을 입력하시오. '))
+print(big(f, s, t))
