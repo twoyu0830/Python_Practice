@@ -172,8 +172,9 @@ print(tu1, tu2, tu3)
 
 a = 3
 b = 5
-a, b = b, a #스왑을 파이썬에서는 임시변수 t같은 것 없이도 구현 가능
-print(a, b)
+c = 7
+(a, b, c) = (c, a, b) #스왑을 파이썬에서는 임시변수 t같은 것 없이도 구현 가능
+print(a, b, c)
 
 li = ['a', 'b', 'c', 'd']
 print(tuple(li))
@@ -194,6 +195,11 @@ print(a)
 
 b = {2, 4, 6, 8} #세트는 순서가 없다.
 print(b)
+
+num_list = [1, 2, 4, 2, 1, 4, 2, 1] #세트 함수로 리스트의 중복된 값 제거하기
+num_set = set(num_list)
+print(list(num_set))
+
 
 c = {'kor': 80, 'eng': 99, 'mat': 77}
 d = set(c) #딕셔너리를 세트에 넣으면 키 값인 과목명들만 세트에 들어간다.
