@@ -48,6 +48,31 @@ from datetime import *
 d = time(19, 2, 20) ####시간만 보여주는 클래스
 print(d)
 
+from random import * #파이썬 내장 모듈
+li = choice(range(1, 46) #한 개 선택해주는 함수(choice(뽑을 것들))
+print(li)
+
+from random import * #파이썬 내장 모듈
+family = ['윤규', '윤지', '도희', '정환'] 
+li = choice(family) #한 개 선택해주는 함수(choice(뽑을 것들))
+print(li)
+
+from random import * #파이썬 내장 모듈
+li = sample(range(1, 46), 6) #순서 없이 무작위로 몇 개 선택해주는 함수(sample(뽑을 것들, 뽑을 개수))
+print(li)
+
+from random import * #파이썬 내장 모듈
+family = ['윤규', '윤지', '도희', '정환']
+li = sample(family, 1) #순서 없이 무작위로 몇 개 선택해주는 함수(sample(뽑을 것들, 뽑을 개수))
+print(li)
+
+from random import * #파이썬 내장 모듈
+li = sample(range(1, 6), 5) #뽑을 것들 수와 뽑을 개수 같게 해주면 순서 정할 때 사용할 수 있다.
+print(li)
+
+
+
+
 def menu(w1, w2, w3):
     return {'red': w1, 'yellow': w2, 'blue': w3} #함수가 딕셔너리형을 리턴할 수도 있다.
 print((menu('빨강', '노랑', '파랑'))
