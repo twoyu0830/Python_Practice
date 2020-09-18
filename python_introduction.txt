@@ -14,3 +14,4 @@ What Python can do
 5. IOT: ex) controling Raspberrt Pi System
 6. Various module: ex) NumPy(Numercial calculation), Sybase(For addressing database),
 Pandas(analyzing data), pickle(Save and retrieve the materials that Python uses without modification.)
+
