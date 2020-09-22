@@ -10,5 +10,21 @@ cat1 = Cat('네로', '검정색') #인스턴스 생성(__init__매소드의 name
 cat2 = Cat('미미', '갈색') #인스턴스 생성(__init__매소드의 name, color에 들어감)
 
 cat1.info() #인스턴스의 매소드 호출
-cat2.info() #인스턴스의 매소드 호출.
+cat2.info() #인스턴스의 매소드 호출
+
+
+class Person:
+    def __init__(self): #__init__ 매소드는 초기값들을 넣어주는 매소드라는 의미에서 초기자라고 불린다.
+        self.name = input('이름을 입력하시오: ')
+        self.age = int(input('나이를 입력하시오: '))
+    def info(self):
+        print('{0}씨는 {1}세이십니다.'.format(self.name, self.age))
+
+li = []
+for i in range(4):
+    li.append(Person()) #객체 생성할 개수만큼 append해둠(클래스에서 정보를 받아줄 거기 때문에 Person() 괄호 안에 아무 정보도 쓰지 말고)
+for i in range(4):
+    li[i].info() #매소드 호출
+
+
 
