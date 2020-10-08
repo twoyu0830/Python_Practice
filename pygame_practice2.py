@@ -13,11 +13,33 @@ pygame.display.set_caption(title)
 clock = pygame.time.Clock()
 white = (255, 255, 255)
 
-ss = pygame.image.load('C:/Users/ygyg0/Google 드라이브/배움/python_practice/ss.png').convert_alpha()
-ss = pygame.transform.scale(ss, (50, 80))
-ss_sx, ss_sy = ss.get_size()
-ss_x = round(size[0] / 2 - ss_sx / 2)
-ss_y = size[1] - ss_sy - 10
+class obj:
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+    def put_image(self, address):
+        if address[-3:] == 'png':
+            self.img = pygame.image.load(address).convert_alpha()
+        else:
+            self.img = pygame.image.load(address)
+            self.sx, self.sy = self.img.get_size()
+    def change_size(self, sx, sy):
+        self.img = pygame.transform.scale(self.img, (sx, xy))
+        self.sx, self.sy = self.img.get_size()
+    def show(self):
+        screen.blit(self.img, (self.x, self.y))
+
+ss = obj()
+ss.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/ss.png')
+ss.change_size(50, 80)
+ss.x = round(size[0] / 2 - ss.sx / 2)
+ss.y = size[1] - ss.sy - 10
+
+
+
+
+
+
 # 4. 메인 이벤트
 SB = 0
 while SB == 0:
@@ -35,7 +57,8 @@ while SB == 0:
 
     # 4-4. 그리기
     screen.fill(white)
-    screen.blit(ss, (ss_x, ss_y))
+    ss.show()
+    
  
     # 4-5 업데이트
     pygame.display.flip()
