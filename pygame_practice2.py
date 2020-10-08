@@ -17,14 +17,14 @@ class obj:
     def __init__(self):
         self.x = 0
         self.y = 0
-    def put_image(self, address):
+    def put_img(self, address):
         if address[-3:] == 'png':
             self.img = pygame.image.load(address).convert_alpha()
         else:
             self.img = pygame.image.load(address)
             self.sx, self.sy = self.img.get_size()
     def change_size(self, sx, sy):
-        self.img = pygame.transform.scale(self.img, (sx, xy))
+        self.img = pygame.transform.scale(self.img, (sx, sy))
         self.sx, self.sy = self.img.get_size()
     def show(self):
         screen.blit(self.img, (self.x, self.y))
@@ -34,11 +34,6 @@ ss.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/ss.png')
 ss.change_size(50, 80)
 ss.x = round(size[0] / 2 - ss.sx / 2)
 ss.y = size[1] - ss.sy - 10
-
-
-
-
-
 
 # 4. 메인 이벤트
 SB = 0
