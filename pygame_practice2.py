@@ -11,12 +11,13 @@ pygame.display.set_caption(title)
 
 # 3. 게임 내 필요한 설정
 clock = pygame.time.Clock()
-white = (255, 255, 255)
+black = (0, 0, 0)
 
 class obj:
     def __init__(self):
         self.x = 0
         self.y = 0
+        self.move = 0
     def put_img(self, address):
         if address[-3:] == 'png':
             self.img = pygame.image.load(address).convert_alpha()
@@ -34,7 +35,10 @@ ss.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/ss.png')
 ss.change_size(50, 80)
 ss.x = round(size[0] / 2 - ss.sx / 2)
 ss.y = size[1] - ss.sy - 10
+ss.move = 5
 
+left_go = False
+right_go = False
 # 4. 메인 이벤트
 SB = 0
 while SB == 0:
@@ -46,12 +50,27 @@ while SB == 0:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             SB = 1
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                left_go = True
+            elif event.key == pygame.K_RIGHT:
+                right_go = True
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                left_go = False
+            elif event.key == pygame.K_RIGHT:
+                right_go = False
+
+ 
  
     # 4-3. 입력, 시간에 따른 변화
-    
+    if left_go == True:
+        ss.x -= ss.move
+    elif right_go == True:
+        ss.x += ss.move
 
     # 4-4. 그리기
-    screen.fill(white)
+    screen.fill(black)
     ss.show()
     
  
