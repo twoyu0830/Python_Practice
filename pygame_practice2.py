@@ -12,6 +12,7 @@ pygame.display.set_caption(title)
 # 3. 게임 내 필요한 설정
 clock = pygame.time.Clock()
 black = (0, 0, 0)
+k = 0
 
 class obj:
     def __init__(self):
@@ -41,6 +42,8 @@ ss.move = 5
 left_go = False
 right_go = False
 space_go = False
+
+m_list = []
 # 4. 메인 이벤트
 SB = 0
 while SB == 0:
@@ -79,10 +82,10 @@ while SB == 0:
         if ss.x >= size[0] - ss.sx:
             ss.x = size[0] - ss.sx
     
-    m_list = []
-    if space_go == True:
+    k += 1
+    if space_go == True and k % 6 == 0:
         mm = obj()
-        mm.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/mm.png')
+        mm.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/mm.jpg')
         mm.change_size(5, 15)
         mm.x = round(ss.x + ss.sx / 2 - mm.sx / 2)
         mm.y = ss.y - mm.sy - 15
@@ -92,8 +95,8 @@ while SB == 0:
     d_list = []
     for i in range(len(m_list)):
         m = m_list[i]
-        mm.y -= mm.move
-        if mm.y <= -mm.sy:
+        m.y -= m.move
+        if m.y <= -m.sy:
             d_list.append(i)
     for d in d_list:
         del m_list[d]
