@@ -37,8 +37,10 @@ ss.x = round(size[0] / 2 - ss.sx / 2)
 ss.y = size[1] - ss.sy - 10
 ss.move = 5
 
+
 left_go = False
 right_go = False
+space_go = False
 # 4. 메인 이벤트
 SB = 0
 while SB == 0:
@@ -55,23 +57,57 @@ while SB == 0:
                 left_go = True
             elif event.key == pygame.K_RIGHT:
                 right_go = True
+            elif event.key == pygame.K_SPACE:
+                space_go = True
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 left_go = False
             elif event.key == pygame.K_RIGHT:
                 right_go = False
+            elif event.key == pygame.K_SPACE:
+                space_go = False
 
  
  
     # 4-3. 입력, 시간에 따른 변화
     if left_go == True:
         ss.x -= ss.move
+        if ss.x <= 0:
+            ss.x = 0
     elif right_go == True:
         ss.x += ss.move
+        if ss.x >= size[0] - ss.sx:
+            ss.x = size[0] - ss.sx
+    
+    m_list = []
+    if space_go == True:
+        mm = obj()
+        mm.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/mm.png')
+        mm.change_size(5, 15)
+        mm.x = round(ss.x + ss.sx / 2 - mm.sx / 2)
+        mm.y = ss.y - mm.sy - 15
+        mm.move = 15
+        m_list.append(mm)
+    
+    d_list = []
+    for i in range(len(m_list)):
+        m = m_list[i]
+        mm.y -= mm.move
+        if mm.y <= -mm.sy:
+            d_list.append(i)
+    for d in d_list:
+        del m_list[d]
+
+
+
+
 
     # 4-4. 그리기
     screen.fill(black)
     ss.show()
+    for m in m_list:
+        m.show()
+  
     
  
     # 4-5 업데이트
