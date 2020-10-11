@@ -1,4 +1,5 @@
 import pygame
+import random
 # 1. 게임 초기화
 pygame.init()
 
@@ -44,6 +45,7 @@ right_go = False
 space_go = False
 
 m_list = []
+a_list = []
 # 4. 메인 이벤트
 SB = 0
 while SB == 0:
@@ -62,6 +64,7 @@ while SB == 0:
                 right_go = True
             elif event.key == pygame.K_SPACE:
                 space_go = True
+                k = 0
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 left_go = False
@@ -82,6 +85,7 @@ while SB == 0:
         if ss.x >= size[0] - ss.sx:
             ss.x = size[0] - ss.sx
     
+    
     k += 1
     if space_go == True and k % 6 == 0:
         mm = obj()
@@ -100,6 +104,31 @@ while SB == 0:
             d_list.append(i)
     for d in d_list:
         del m_list[d]
+    
+    
+    if random.random() > 0.98:
+        aa = obj()
+        aa.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/aa.jpg')
+        aa.change_size(40, 40)
+        aa.x = random.randrange(0, round(size[0] - aa.sx - ss.sx / 2))
+        aa.y = 10
+        aa.move = 1
+        a_list.append(aa)
+    
+    d_list = []
+    for i in range(len(a_list)):
+        a = a_list[i]
+        a.y += a.move
+        if a.y >= size[1]:
+            d_list.append(i)
+    for d in d_list:
+        del a_list[d]
+
+    
+    
+    
+
+
 
 
 
@@ -110,7 +139,8 @@ while SB == 0:
     ss.show()
     for m in m_list:
         m.show()
-  
+    for a in a_list:
+        a.show()
     
  
     # 4-5 업데이트
