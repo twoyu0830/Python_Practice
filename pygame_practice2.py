@@ -33,7 +33,7 @@ class obj:
         screen.blit(self.img, (self.x, self.y))
 
 ss = obj()
-ss.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/ss.png')
+ss.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/Images for Shooting Game/ss.jpg')
 ss.change_size(50, 80)
 ss.x = round(size[0] / 2 - ss.sx / 2)
 ss.y = size[1] - ss.sy - 10
@@ -89,7 +89,7 @@ while SB == 0:
     k += 1
     if space_go == True and k % 6 == 0:
         mm = obj()
-        mm.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/mm.jpg')
+        mm.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/Images for Shooting Game/mm.jpg')
         mm.change_size(5, 15)
         mm.x = round(ss.x + ss.sx / 2 - mm.sx / 2)
         mm.y = ss.y - mm.sy - 15
@@ -108,7 +108,7 @@ while SB == 0:
     
     if random.random() > 0.98:
         aa = obj()
-        aa.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/aa.jpg')
+        aa.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/Images for Shooting Game/aa.jpg')
         aa.change_size(40, 40)
         aa.x = random.randrange(0, round(size[0] - aa.sx - ss.sx / 2))
         aa.y = 10
