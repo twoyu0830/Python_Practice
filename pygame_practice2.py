@@ -32,6 +32,15 @@ class obj:
     def show(self):
         screen.blit(self.img, (self.x, self.y))
 
+def crash(a, b):
+    if b.x <= a.x + a.sx and b.x >= a.x - b.sx:
+        if b.y <= a.y + a.sy and b.y >= a.x - b.sy:
+            return True
+        else:
+            return False
+    else:
+        return False
+
 ss = obj()
 ss.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/Images for Shooting Game/ss.jpg')
 ss.change_size(50, 80)
