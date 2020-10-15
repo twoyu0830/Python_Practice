@@ -133,7 +133,24 @@ while SB == 0:
     for d in d_list:
         del a_list[d]
 
+    dm_list = []
+    da_list = []
+    for i in range(len(m_list)):
+        for j in range(len(a_list)):
+            m = m_list[i]
+            a = a_list[j]
+            if crash(m, a):
+                dm_list.append(i)
+                am_list.append(j)
     
+    for dm in dm_list:
+        del m_list(dm)
+
+    for da in da_list:
+        del a_list(da)
+
+
+
     
     
 
