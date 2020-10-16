@@ -1,5 +1,6 @@
 import pygame
 import random
+import time
 # 1. 게임 초기화
 pygame.init()
 
@@ -33,8 +34,8 @@ class obj:
         screen.blit(self.img, (self.x, self.y))
 
 def crash(a, b):
-    if b.x <= a.x + a.sx and b.x >= a.x - b.sx:
-        if b.y <= a.y + a.sy and b.y >= a.x - b.sy:
+    if (a.x - b.sx <= b.x) and (b.x <= a.x + a.sx):
+        if (a.x - b.sy <= b.y) and (b.y <= a.y + a.sy):
             return True
         else:
             return False
@@ -96,7 +97,7 @@ while SB == 0:
     
     
     k += 1
-    if space_go == True and k % 6 == 0:
+    if space_go == True and k % 5 == 0:
         mm = obj()
         mm.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/Images for Shooting Game/mm.jpg')
         mm.change_size(5, 15)
@@ -141,13 +142,23 @@ while SB == 0:
             a = a_list[j]
             if crash(m, a):
                 dm_list.append(i)
-                am_list.append(j)
-    
-    for dm in dm_list:
-        del m_list(dm)
+                da_list.append(j)
+    dm_list = list(set(dm_list))
+    da_list = list(set(da_list))
 
-    for da in da_list:
-        del a_list(da)
+    try:
+        for dm in dm_list:
+            del m_list[dm]
+        for da in da_list:
+            del a_list[da]
+    except:
+        pass
+
+    for i in range(len(a_list)):
+        a = a_list[i]
+        if crash(a, ss) == True:
+            SB = 1 
+            time.sleep(1)
 
 
 
