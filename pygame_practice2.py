@@ -1,6 +1,7 @@
 import pygame
 import random
 import time
+
 # 1. 게임 초기화
 pygame.init()
 
@@ -13,8 +14,6 @@ pygame.display.set_caption(title)
 
 # 3. 게임 내 필요한 설정
 clock = pygame.time.Clock()
-black = (0, 0, 0)
-k = 0
 
 class obj:
     def __init__(self):
@@ -49,13 +48,16 @@ ss.x = round(size[0] / 2 - ss.sx / 2)
 ss.y = size[1] - ss.sy - 10
 ss.move = 5
 
-
 left_go = False
 right_go = False
 space_go = False
 
 m_list = []
 a_list = []
+
+black = (0, 0, 0)
+k = 0
+
 # 4. 메인 이벤트
 SB = 0
 while SB == 0:
@@ -83,8 +85,6 @@ while SB == 0:
             elif event.key == pygame.K_SPACE:
                 space_go = False
 
- 
- 
     # 4-3. 입력, 시간에 따른 변화
     if left_go == True:
         ss.x -= ss.move
@@ -94,10 +94,8 @@ while SB == 0:
         ss.x += ss.move
         if ss.x >= size[0] - ss.sx:
             ss.x = size[0] - ss.sx
-    
-    
-    k += 1
-    if space_go == True and k % 5 == 0:
+        
+    if space_go == True and k % 6 == 0:
         mm = obj()
         mm.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/Images for Shooting Game/mm.jpg')
         mm.change_size(5, 15)
@@ -105,7 +103,7 @@ while SB == 0:
         mm.y = ss.y - mm.sy - 15
         mm.move = 15
         m_list.append(mm)
-    
+    k += 1
     d_list = []
     for i in range(len(m_list)):
         m = m_list[i]
@@ -115,7 +113,6 @@ while SB == 0:
     for d in d_list:
         del m_list[d]
     
-    
     if random.random() > 0.98:
         aa = obj()
         aa.put_img('C:/Users/ygyg0/Google 드라이브/배움/python_practice/Images for Shooting Game/aa.jpg')
@@ -124,7 +121,6 @@ while SB == 0:
         aa.y = 10
         aa.move = 1
         a_list.append(aa)
-    
     d_list = []
     for i in range(len(a_list)):
         a = a_list[i]
@@ -140,7 +136,7 @@ while SB == 0:
         for j in range(len(a_list)):
             m = m_list[i]
             a = a_list[j]
-            if crash(m, a):
+            if crash(m, a) == True:
                 dm_list.append(i)
                 da_list.append(j)
     dm_list = list(set(dm_list))
@@ -160,17 +156,6 @@ while SB == 0:
             SB = 1 
             time.sleep(1)
 
-
-
-    
-    
-
-
-
-
-
-
-
     # 4-4. 그리기
     screen.fill(black)
     ss.show()
@@ -179,7 +164,6 @@ while SB == 0:
     for a in a_list:
         a.show()
     
- 
     # 4-5 업데이트
     pygame.display.flip()
 
