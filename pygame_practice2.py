@@ -58,6 +58,8 @@ a_list = []
 black = (0, 0, 0)
 k = 0
 
+kill = 0
+loss = 0
 # 4. 메인 이벤트
 SB = 0
 while SB == 0:
@@ -129,6 +131,7 @@ while SB == 0:
             d_list.append(i)
     for d in d_list:
         del a_list[d]
+        loss += 1
 
     dm_list = []
     da_list = []
@@ -147,6 +150,7 @@ while SB == 0:
             del m_list[dm]
         for da in da_list:
             del a_list[da]
+            kill += 1
     except:
         pass
 
@@ -163,6 +167,10 @@ while SB == 0:
         m.show()
     for a in a_list:
         a.show()
+
+    font = pygame.font.Font('C:/windows/Fonts/h8514sys.fon', 20)
+    text = font.render('killed: {} loss: {}'.format(kill, loss), True, (255, 255, 0))
+    screen.blit(text, (10, 5))
     
     # 4-5 업데이트
     pygame.display.flip()
