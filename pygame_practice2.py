@@ -1,6 +1,7 @@
 import pygame
 import random
 import time
+from datetime import datetime
 
 # 1. 게임 초기화
 pygame.init()
@@ -61,6 +62,7 @@ k = 0
 kill = 0
 loss = 0
 # 4. 메인 이벤트
+start_time = datetime.now()
 SB = 0
 while SB == 0:
     
@@ -88,6 +90,9 @@ while SB == 0:
                 space_go = False
 
     # 4-3. 입력, 시간에 따른 변화
+    now_time = datetime.now()
+    delta_time = round((now_time - start_time).total_seconds())
+    
     if left_go == True:
         ss.x -= ss.move
         if ss.x <= 0:
@@ -169,8 +174,12 @@ while SB == 0:
         a.show()
 
     font = pygame.font.Font('C:/windows/Fonts/h8514sys.fon', 20)
-    text = font.render('killed: {} loss: {}'.format(kill, loss), True, (255, 255, 0))
-    screen.blit(text, (10, 5))
+    text_kill = font.render('killed: {} loss: {}'.format(kill, loss), True, (255, 255, 0))
+    screen.blit(text_kill, (10, 5))
+
+    text_time = font.render('time: {}'.format(delta_time), True, (255, 255, 0))
+    screen.blit(text_time, (size[0] - 100, 5))
+
     
     # 4-5 업데이트
     pygame.display.flip()
