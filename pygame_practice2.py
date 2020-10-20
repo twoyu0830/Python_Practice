@@ -61,6 +61,21 @@ k = 0
 
 kill = 0
 loss = 0
+
+# 4-0. 게임 대기 화면
+SB = 0
+while SB == 0:
+    clock.tick(60)
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                SB = 1
+    screen.fill(black)
+    font = pygame.font.Font('C:/windows/Fonts/h8514sys.fon', 15)
+    text = font.render('PRESS SPACE KEY TO START THE GAME', True, (255, 255, 0))
+    screen.blit(text, (40, size[1] / 2 - 50))
+    pygame.display.flip()
+
 # 4. 메인 이벤트
 start_time = datetime.now()
 SB = 0
