@@ -61,6 +61,7 @@ k = 0
 
 kill = 0
 loss = 0
+game_over = 0
 
 # 4-0. 게임 대기 화면
 SB = 0
@@ -178,8 +179,9 @@ while SB == 0:
         a = a_list[i]
         if crash(a, ss) == True:
             SB = 1 
+            game_over = 1
             time.sleep(1)
-
+            
     # 4-4. 그리기
     screen.fill(black)
     ss.show()
@@ -193,11 +195,21 @@ while SB == 0:
     screen.blit(text_kill, (10, 5))
 
     text_time = font.render('time: {}'.format(delta_time), True, (255, 255, 0))
-    screen.blit(text_time, (size[0] - 100, 5))
+    screen.blit(text_time, (size[0] - 75, 5))
 
     
     # 4-5 업데이트
     pygame.display.flip()
 
 # 5. 게임 종료
+while game_over == 1:
+    clock.tick(60)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            game_over = 0
+    font = pygame.font.Font('C:/windows/Fonts/h8514sys.fon', 80)
+    text = font.render('GAME OVER', True, (255, 0, 0))
+    screen.blit(text, (160, round(size[1] / 2 - 50)))
+    pygame.display.flip()
+
 pygame.quit()
