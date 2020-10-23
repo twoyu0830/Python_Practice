@@ -94,6 +94,64 @@ for i in score:
     tot_kor += i['국어']
 print(tot_kor)
 
+############11. 이 반에서 모든 과목 중 가장 점수가 낮은 사람의 이름을 출력하시오.
+score = []
+score.append({'이름': '이윤규', '국어': 98, '영어': 100, '수학': 100})
+score.append({'이름': '김도희', '국어': 93, '영어': 100, '수학': 95})
+score.append({'이름': '이정환', '국어': 90, '영어': 100, '수학': 100})
+score.append({'이름': '이윤지', '국어': 100, '영어': 100, '수학': 99})
+
+min1 = 0
+min2 = 100
+for i in range(len(score)):
+    if score[i]['국어'] < score[i]['영어'] and score[i]['국어'] < score[i]['수학']:
+        min1 = score[i]['국어']
+    elif score[i]['영어'] < score[i]['국어'] and score[i]['영어'] < score[i]['수학']:
+        min1 = score[i]['영어']
+    elif score[i]['수학'] < score[i]['국어'] and score[i]['수학'] < score[i]['영어']:
+        min1 = score[i]['수학']
+    
+    if min1 < min2:
+        min2 = min1
+
+for i in range(len(score)):
+    if min2 in score[i]:
+        print(score[i]['이름'])
+
+
+    
+   
+        
+
+score[i][j]
+###########12. '이'씨들의 국어 점수의 총합을 구하시오.
+score = []
+score.append({'이름': '이윤규', '국어': 98, '영어': 100, '수학': 100})
+score.append({'이름': '김도희', '국어': 93, '영어': 100, '수학': 95})
+score.append({'이름': '이정환', '국어': 90, '영어': 100, '수학': 100})
+score.append({'이름': '이윤지', '국어': 100, '영어': 100, '수학': 99})
+
+lee_kor = []
+for i in range(len(score)):
+    if '이' in score[i]['이름']:
+        lee_kor.append(score[i]['국어'])
+print(sum(lee_kor))
+
+###########13. 수학이 100점인 사람들을 삭제하시오.
+score = []
+score.append({'이름': '이윤규', '국어': 98, '영어': 100, '수학': 100})
+score.append({'이름': '김도희', '국어': 93, '영어': 100, '수학': 95})
+score.append({'이름': '이정환', '국어': 90, '영어': 100, '수학': 100})
+score.append({'이름': '이윤지', '국어': 100, '영어': 100, '수학': 99})
+
+for i in range(len(score)):
+    if score[i]['수학'] == 100:
+        del score[i]
+print(score)
+
+
+
+
 
 
 
