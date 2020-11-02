@@ -149,6 +149,44 @@ for i in range(len(score)):
         del score[i]
 print(score)
 
+#14. 오늘 날짜 중 연도만 출력하시오.
+import datetime
+d = datetime.date.today()
+print(d.year)
+
+#15. 오늘로부터 2일후를 출력하시오.
+import datetime
+d = datetime.date.today()
+t = timedelta(days = 2)
+print(d + t)
+
+#16. 2021년 1월 1일까지는 몇 일 남았는지 쓰시오.
+import datetime
+d = datetime.date.today()
+t = datetime.date(2021, 1, 1)
+print(t - d)
+
+#17. 시간을 설정하고 출력하시오.
+import datetime
+d = datetime.time(21, 11, 35)
+print(d)
+
+#18. 시간을 설정하고 시, 분, 초를 출력하시오.
+import datetime
+d = datetime.time(21, 11, 35)
+print(d.hour)
+print(d.minute)
+print(d.second)
+
+#19. 날짜와 시간을 설정하고 출력해보세요.
+import datetime
+d = datetime.datetime(2012, 3, 7, 14, 24, 1)
+print(d)
+
+#20. 오늘 날짜와 시간을 출력하시오.
+d = datetime.datetime.now()
+print(d)
+
 
 
 
