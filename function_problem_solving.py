@@ -5,7 +5,7 @@ print(d.year) #각각 쪼개서 출력도 가능
 print(d.month)
 print(d.day)
 
-#2. 오늘 날짜와 2일을 출력하시오.
+#2. 오늘로부터 2일후를 출력하시오.
 from datetime import *
 d = date.today()
 t = timedelta(days = 2) #특정 날짜에서 특정 일수를 더하면 무슨 날짜가 되는지 알고 싶을 때 사용
