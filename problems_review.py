@@ -184,10 +184,40 @@ d = datetime.datetime(2012, 3, 7, 14, 24, 1)
 print(d)
 
 #20. 오늘 날짜와 시간을 출력하시오.
+import datetime
 d = datetime.datetime.now()
 print(d)
 
+##########21. 함수를 이용하여 단을 입력받아 해당 단의 구구단을 출력하는 프로그램을 작성하시오.
+def gugudan():
+    gu = int(input('몇 단을 출력할까요?'))
+    for i in range(1, 20):
+        print('{} * {} = {}'.format(gu, i, gu * i))
+gugudan()
 
+
+#22. 두 수를 입력 받아 두 수 사이의 수들의 합을 구하시오.(함수 사용)
+def delta_sum(fir, sec):
+    fir = int(input('Enter the first number: '))
+    sec = int(input('Enter the second number: '))
+    if fir <= sec:
+        delta_sum_ = 0
+        for i in range(fir + 1, sec):
+            delta_sum_ += i
+        print(delta_sum_)
+    else:
+        delta_sum_ = 0
+        for i in range(sec + 1, fir):
+            delta_sum_ += i
+        print(delta_sum_)
+delta_sum()
+
+
+
+
+#23. 두 수를 입력받아 큰 수를 출력하시오.
+
+#24. 세 수를 입력받아 가장 큰 값을 출력하시오.
 
 
 
