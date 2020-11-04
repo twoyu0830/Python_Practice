@@ -197,7 +197,7 @@ gugudan()
 
 
 #22. 두 수를 입력 받아 두 수 사이의 수들의 합을 구하시오.(함수 사용)
-def delta_sum(fir, sec):
+def delta_sum():
     fir = int(input('Enter the first number: '))
     sec = int(input('Enter the second number: '))
     if fir <= sec:
@@ -212,13 +212,33 @@ def delta_sum(fir, sec):
         print(delta_sum_)
 delta_sum()
 
-
-
-
 #23. 두 수를 입력받아 큰 수를 출력하시오.
+def two_comparison():
+    fir = int(input('첫 번째 수를 입력하시오: '))
+    sec = int(input('두 번째 수를 입력하시오: '))
+    if fir > sec:
+        return fir
+    elif fir == sec:
+        return 'same'
+    else:
+        return sec
+comparison()
 
 #24. 세 수를 입력받아 가장 큰 값을 출력하시오.
-
+def three_comparison():
+    fir = int(input('첫 번째 수를 입력하시오: '))
+    sec = int(input('두 번째 수를 입력하시오: '))
+    thi = int(input('세 번째 수를 입력하시오: '))
+    if fir > sec and fir > thi:
+        return fir
+    elif sec > fir and sec > thi:
+        return sec
+    elif thi > fir and thi > sec:
+        return thi
+    else:
+        return 'none'
+three_comparison()
+    
 
 
 
