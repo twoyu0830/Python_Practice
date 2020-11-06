@@ -239,20 +239,24 @@ def three_comparison():
         return 'none'
 three_comparison()
 
-#11. 세 수를 입력받아 가장 큰 값을 출력하시오.
-def big(f, s, t):
-    if f > s and f > t:
-        return f
-    elif s > f and s > t:
-        return s
-    elif t > f and t > s:
-        return t
-    else:
-        return 'none'
-f = int(input('값을 입력하시오. '))
-s = int(input('값을 입력하시오. '))
-t = int(input('값을 입력하시오. '))
-print(big(f, s, t))
+#25.
+class Human:
+    def __init__(self, name, age, gen):
+        self.name = name
+        self.age = age
+        self.gen = gen
+    
+    def who(self):
+        print('이름: {}, 나이: {}, 성별: {}'.format(self.name, self.age, self.gen))
+    
+areum = Human('아름', 25, '여자')
+print(areum.name)
+print(areum.age)
+print(areum.gen)
+
+print(Human.who(areum))
+
+
     
 
 
