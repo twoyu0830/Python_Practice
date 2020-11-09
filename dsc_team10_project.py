@@ -1,67 +1,166 @@
+import time
 from multiprocessing import Process
 import pygame
 import turtle
 from random import randint
 
+screen = turtle.Screen()
+
 pygame.mixer.init()
 music1 = pygame.mixer.music.load("1스테이지.mp3")
+screen.title("circulo_ritmo")
 
 def A():
     a.up()
-    a.goto(-600,-350)   #-600,300    650,300
-    a.down()            #-600,-350   650,-350
-    a.forward(1250)
+    a.goto(-750,-380)   #-700,380    750,380
+    a.down()            #-750,-380   750,-380
+    a.forward(1500)
     a.left(90)
-    a.forward(650)
+    a.forward(760)
     a.left(90)
-    a.forward(1250)
+    a.forward(1500)
     a.left(90)
-    a.forward(650)
+    a.forward(760)
     a.up()
     player.up()
     player.goto(-210,-20)
     player.left(270)
     a.goto(-200,-20)
     a.down()
-    a.speed(0)
-    a.circle(290)
-    a.ht()
+    a.speed(0)      #             90,280
+    a.circle(290)   # -210,-20                 390,-20
+    a.ht()          #             90,-320
 
 
-player1  =  turtle.Turtle ()
-player1.color ( "black" )
-player1.shape ( "circle" )
-player1.pensize(3)
-player1.speed(3)
+player  =  turtle.Turtle ()
+player.color ( "black" )
+player.shape ( "circle" )
+player.pensize(3)
+player.speed(10)
 
 
-a  =  turtle.Turtle () #레일 그리
+a  =  turtle.Turtle () #레일 그리는 객체
 a.color ( "black" )
 a.speed ( 0 )
 a.pensize(5)
 
-b  =  turtle.Turtle ()
-b.color ( "red" )
-b.shape ( "triangle" )
-b.up ()
-b.speed ( 0 )
-b.pensize(5)
+b1  =  turtle.Turtle () #장애물 객체
+b1.color ( "red" )
+b1.shape ( "triangle" )  # 정 오른쪽
+b1.up ()
+b1.speed ( 0 )
+b1.pensize(5)
+b1.ht()
 
-screen  =  player1.getscreen ()
-screen  =  player2.getscreen ()
+b2  =  turtle.Turtle ()  #정 위쪽
+b2.color ( "red" )
+b2.shape ( "triangle" )
+b2.up ()
+b2.speed ( 0 )
+b2.pensize(5)
+b2.ht()
+
+b3  =  turtle.Turtle () #정 아래쪽
+b3.color ( "red" )
+b3.shape ( "triangle" )
+b3.up ()
+b3.speed ( 0 )
+b3.pensize(5)
+b3.ht()
+
+b4  =  turtle.Turtle ()    # 정 왼쪽
+b4.color ( "red" )
+b4.shape ( "triangle" )
+b4.up ()
+b4.speed ( 0 )
+b4.pensize(5)
+b4.ht()
+
+
+screen  =  player.getscreen ()
 
 A() #게임창 만들기
 
 screen.listen ()
 
-def play () :            #플레이어의 움직임 제현
+def trun ():       #장애물의 라인 이동
+    b1.left(180)
+    b1.forward(20)
+    b2.left(180)
+    b2.forward(20)
+    b3.left(180)
+    b3.forward(20)
+    b4.left(180)
+    b4.forward(20)
+
+
+def pattern ():
+    start = time.time() #시작 시간 저장
+    b1.goto(390,-20)
+    b2.left(90)
+    b2.goto(90,280)
+    b3.right(90)
+    b3.goto(90,-320)
+    b4.left(180)
+    b1.st()
+    b2.st()ck
+    b3.st()
+    b4.goto(-210,-20)
+    b4.st()
+
+def hit ():    # 피격 판정
     while True:
-        player1.circle ( 300 )
+        screen.delay(4)
+        player.circle ( 300 , 10 )
+        px = int(player.xcor())
+        py = int(player.ycor())
+        b1x = int(b1.xcor())
+        b1y = int(b1.ycor())
+        b2x = int(b2.xcor())
+        b2y = int(b2.ycor())
+        b3x = int(b3.xcor())
+        b3y = int(b3.ycor())
+        b4x = int(b4.xcor())
+        b4y = int(b4.ycor())
+        if abs(px - b1x) <= 10 and abs(py - b1y) <= 10 :
+            pygame.mixer.music.pause()
+            player.goto(-210,-20)
+            break
+        if abs(px - b2x) <= 10 and abs(py - b2y) <= 10 :
+            pygame.mixer.music.pause()
+            player.goto(-210,-20)
+            break
+        if abs(px - b3x) <= 10 and abs(py - b3y) <= 10 :
+            pygame.mixer.music.pause()
+            player.goto(-210,-20)
+            break
+        if abs(px - b4x) <= 10 and abs(py - b4y) <= 10 :
+            pygame.mixer.music.pause()
+            player.goto(-210,-20)
+            break
+
 
 def start () :    #게임 시작후 함수 실행
     pygame.mixer.music.play()
-    play()
+    pattern()
+    hit()
+
+def sethead ():
+    player.setheading(270)
+    b1.setheading(0)
+    b2.setheading(90)
+    b3.setheading(270)
+    b4.setheading(180)
+
+def restart () :    #재시작 함수 실행
+    phead = int(player.heading())
+    pygame.mixer.music.play()
+    sethead()
+    hit()
+
 
 screen.onkeypress(start, "space") #스페이스 누르면 게임 시작
+screen.onkeypress( trun , "Left")
+screen.onkeypress( restart , "Right")
 
 turtle.mainloop()
