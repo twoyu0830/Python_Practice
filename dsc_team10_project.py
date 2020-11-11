@@ -12,7 +12,7 @@ screen.title("circulo_ritmo")
 
 def A():
     a.up()
-    a.goto(-750,-380)   #-700,380    750,380
+    a.goto(-750,-380)   #-750,380    750,380
     a.down()            #-750,-380   750,-380
     a.forward(1500)
     a.left(90)
@@ -103,7 +103,7 @@ def pattern ():
     b3.goto(90,-320)
     b4.left(180)
     b1.st()
-    b2.st()ck
+    b2.st()
     b3.st()
     b4.goto(-210,-20)
     b4.st()
