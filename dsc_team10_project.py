@@ -12,8 +12,8 @@ screen.title("circulo_ritmo")
 
 def A():
     a.up()
-    a.goto(-750,-380)   #-750,380    750,380
-    a.down()            #-750,-380   750,-380
+    a.goto(-750,-380)   #-750, 380    750, 380
+    a.down()            #-750, -380   750, -380
     a.forward(1500)
     a.left(90)
     a.forward(760)
@@ -23,13 +23,13 @@ def A():
     a.forward(760)
     a.up()
     player.up()
-    player.goto(-210,-20)
+    player.goto(-300, 0)
     player.left(270)
-    a.goto(-200,-20)
+    a.goto(-290, 0)
     a.down()
-    a.speed(0)      #             90,280
-    a.circle(290)   # -210,-20                 390,-20
-    a.ht()          #             90,-320
+    a.speed(0)      #             0, 300
+    a.circle(290)   # -300, 0                 300, 0
+    a.ht()          #             0, -300
 
 
 player  =  turtle.Turtle ()
@@ -96,16 +96,16 @@ def trun ():       #장애물의 라인 이동
 
 def pattern ():
     start = time.time() #시작 시간 저장
-    b1.goto(390,-20)
+    b1.goto(300, 0)
     b2.left(90)
-    b2.goto(90,280)
+    b2.goto(0, 300)
     b3.right(90)
-    b3.goto(90,-320)
+    b3.goto(0, -300)
     b4.left(180)
     b1.st()
     b2.st()
     b3.st()
-    b4.goto(-210,-20)
+    b4.goto(-300, 0)
     b4.st()
 
 def hit ():    # 피격 판정
@@ -124,19 +124,19 @@ def hit ():    # 피격 판정
         b4y = int(b4.ycor())
         if abs(px - b1x) <= 10 and abs(py - b1y) <= 10 :
             pygame.mixer.music.pause()
-            player.goto(-210,-20)
+            player.goto(-300, 0)
             break
         if abs(px - b2x) <= 10 and abs(py - b2y) <= 10 :
             pygame.mixer.music.pause()
-            player.goto(-210,-20)
+            player.goto(-300, 0)
             break
         if abs(px - b3x) <= 10 and abs(py - b3y) <= 10 :
             pygame.mixer.music.pause()
-            player.goto(-210,-20)
+            player.goto(-300, 0)
             break
         if abs(px - b4x) <= 10 and abs(py - b4y) <= 10 :
             pygame.mixer.music.pause()
-            player.goto(-210,-20)
+            player.goto(-300, 0)
             break
 
 
