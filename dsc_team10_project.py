@@ -12,7 +12,7 @@ screen.title("circulo_ritmo")
 
 def A():
     a.up()
-    a.goto(-750,-380)   #-750, 380    750, 380
+    a.goto(-750, -380)   #-750, 380    750, 380
     a.down()            #-750, -380   750, -380
     a.forward(1500)
     a.left(90)
@@ -83,7 +83,7 @@ A() #게임창 만들기
 
 screen.listen ()
 
-def trun ():       #장애물의 라인 이동
+def trun ():       #장애물의 라인 안팎 이동
     b1.left(180)
     b1.forward(20)
     b2.left(180)
@@ -102,10 +102,10 @@ def pattern ():
     b3.right(90)
     b3.goto(0, -300)
     b4.left(180)
+    b4.goto(-300, 0)
     b1.st()
     b2.st()
     b3.st()
-    b4.goto(-300, 0)
     b4.st()
 
 def hit ():    # 피격 판정
@@ -140,12 +140,12 @@ def hit ():    # 피격 판정
             break
 
 
-def start () :    #게임 시작후 함수 실행
+def start () :    #게임 시작 후 함수 실행
     pygame.mixer.music.play()
     pattern()
     hit()
 
-def sethead ():
+def sethead (): #재시작 시 장애물들이 바라보는 방향 설정
     player.setheading(270)
     b1.setheading(0)
     b2.setheading(90)
@@ -160,7 +160,7 @@ def restart () :    #재시작 함수 실행
 
 
 screen.onkeypress(start, "space") #스페이스 누르면 게임 시작
-screen.onkeypress( trun , "Left")
-screen.onkeypress( restart , "Right")
+screen.onkeypress(trun , "Left")
+screen.onkeypress(restart , "Right")
 
 turtle.mainloop()
