@@ -10,7 +10,7 @@ pygame.mixer.init()
 music1 = pygame.mixer.music.load("1스테이지.mp3")
 screen.title("circulo_ritmo")
 
-def A():
+def A(): #게임창 만들기
     a.up()
     a.goto(-750, -380)   #-750, 380    750, 380
     a.down()            #-750, -380   750, -380
@@ -37,7 +37,6 @@ player.color ( "black" )
 player.shape ( "circle" )
 player.pensize(3)
 player.speed(10)
-
 
 a  =  turtle.Turtle () #레일 그리는 객체
 a.color ( "black" )
@@ -76,10 +75,9 @@ b4.speed ( 0 )
 b4.pensize(5)
 b4.ht()
 
-
 screen  =  player.getscreen ()
 
-A() #게임창 만들기
+A()
 
 screen.listen ()
 
@@ -92,7 +90,6 @@ def trun ():       #장애물의 라인 안팎 이동
     b3.forward(20)
     b4.left(180)
     b4.forward(20)
-
 
 def pattern ():
     start = time.time() #시작 시간 저장
@@ -139,7 +136,6 @@ def hit ():    # 피격 판정
             player.goto(-300, 0)
             break
 
-
 def start () :    #게임 시작 후 함수 실행
     pygame.mixer.music.play()
     pattern()
@@ -157,7 +153,6 @@ def restart () :    #재시작 함수 실행
     pygame.mixer.music.play()
     sethead()
     hit()
-
 
 screen.onkeypress(start, "space") #스페이스 누르면 게임 시작
 screen.onkeypress(trun , "Left")
