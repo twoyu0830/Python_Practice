@@ -33,7 +33,7 @@ def A(): #게임창 만들기
     a.ht()          #             0, -300
 
 
-player  =  turtle.Turtle ()
+player  =  turtle.Turtle () #플레이어 객체
 player.color ( "black" )
 player.shape ( "circle" )
 player.pensize(3)
@@ -44,15 +44,15 @@ a.color ( "black" )
 a.speed ( 0 )
 a.pensize(5)
 
-b1  =  turtle.Turtle () #장애물 객체
+b1  =  turtle.Turtle () #오른쪽 장애물 객체
 b1.color ( "red" )
-b1.shape ( "triangle" )  # 정 오른쪽
+b1.shape ( "triangle" )  
 b1.up ()
 b1.speed ( 0 )
 b1.pensize(5)
 b1.ht()
 
-b2  =  turtle.Turtle ()  #정 위쪽
+b2  =  turtle.Turtle ()  #위쪽 장애물 객체
 b2.color ( "red" )
 b2.shape ( "triangle" )
 b2.up ()
@@ -60,7 +60,7 @@ b2.speed ( 0 )
 b2.pensize(5)
 b2.ht()
 
-b3  =  turtle.Turtle () #정 아래쪽
+b3  =  turtle.Turtle () #아래쪽 장애물 객체
 b3.color ( "red" )
 b3.shape ( "triangle" )
 b3.up ()
@@ -68,7 +68,7 @@ b3.speed ( 0 )
 b3.pensize(5)
 b3.ht()
 
-b4  =  turtle.Turtle ()    # 정 왼쪽
+b4  =  turtle.Turtle () #왼쪽 장애물 객체
 b4.color ( "red" )
 b4.shape ( "triangle" )
 b4.up ()
@@ -84,7 +84,7 @@ screen.listen ()
 
 
 
-def trun ():       #장애물의 라인 안팎 이동
+def trun (): #장애물의 라인 안팎 이동
     a1 =  b1.isvisible()
     a2 =  b2.isvisible()
     a3 =  b3.isvisible()
@@ -106,7 +106,7 @@ def trun ():       #장애물의 라인 안팎 이동
         b4.left(180)
         b4.forward(20)
 
-def pattern (): #상하 1번 (2초)
+def pattern1 (): #상하 1번 (2초)
     screen.delay(0)
     b3.setpos(0,-300)
     b2.setpos(0,280)
@@ -114,9 +114,9 @@ def pattern (): #상하 1번 (2초)
     b3.setheading(270)
     b3.st()
     b2.st()
-    threading.Timer(3.0, hide).start()
+    threading.Timer(3.0, pattern2).start()
 
-def  hide (): #좌우 1번 (4.6초)
+def  pattern2 (): #좌우 1번 (4.6초)
     screen.delay(0)
     b2.ht()
     b3.ht()
@@ -128,10 +128,10 @@ def  hide (): #좌우 1번 (4.6초)
     b4.setheading(0)
     b1.st()
     b4.st()
-    threading.Timer(3.9 , pattern1).start()
+    threading.Timer(3.9 , pattern3).start()
 
 
-def pattern1 ():  #상하 2번 (7.6초)
+def pattern3 ():  #상하 2번 (7.6초)
     screen.delay(0)
     b1.ht()
     b4.ht()
@@ -143,9 +143,9 @@ def pattern1 ():  #상하 2번 (7.6초)
     b3.setheading(90)
     b2.st()
     b3.st()
-    threading.Timer(4.9, pattern2).start()
+    threading.Timer(4.9, pattern4).start()
 
-def pattern2 (): #좌우 2번 (12.6초)
+def pattern4 (): #좌우 2번 (12.6초)
     screen.delay(0)
     b2.ht()
     b3.ht()
@@ -157,9 +157,9 @@ def pattern2 (): #좌우 2번 (12.6초)
     b4.setheading(0)
     b1.st()
     b4.st()
-    threading.Timer(4.6, pattern3).start()
+    threading.Timer(4.6, pattern5).start()
 
-def pattern3 (): #상하 2 번  (18.1초)
+def pattern5 (): #상하 2 번  (18.1초)
     screen.delay(0)
     b1.ht()
     b4.ht()
@@ -171,9 +171,9 @@ def pattern3 (): #상하 2 번  (18.1초)
     b3.setheading(270)
     b2.st()
     b3.st()
-    threading.Timer(5.2, pattern4).start()
+    threading.Timer(5.2, pattern6).start()
 
-def pattern4 (): #상하좌우 4번 (23.4초)
+def pattern6 (): #상하좌우 4번 (23.4초)
     screen.delay(0)
     b1.setpos(280,0)
     b4.setpos(-280, 0)
@@ -187,11 +187,9 @@ def pattern4 (): #상하좌우 4번 (23.4초)
     b2.st()
     b3.st()
     b4.st()
-    threading.Timer(11.0, pattern5).start()
-
 
 def hit ():    #피격 판정
-    threading.Timer(2, pattern).start()
+    threading.Timer(2, pattern1).start()
     while True:
         screen.delay(5.0)
         player.circle ( 300 , 10 )
