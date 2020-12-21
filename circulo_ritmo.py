@@ -82,8 +82,6 @@ A()
 
 screen.listen ()
 
-
-
 def trun ():       #장애물의 라인 안팎 이동
     a1 =  b1.isvisible()
     a2 =  b2.isvisible()
