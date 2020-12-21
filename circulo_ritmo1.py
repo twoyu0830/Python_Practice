@@ -116,7 +116,7 @@ def pattern1 (): #상하 1번 (2초)
     b2.st()
     threading.Timer(3.0, pattern2).start()
 
-def  pattern2 (): #좌우 1번 (4.6초)
+def pattern2 (): #좌우 1번 (4.6초)
     screen.delay(0)
     b2.ht()
     b3.ht()
