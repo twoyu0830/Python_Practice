@@ -26,6 +26,7 @@ b1.shape ( "triangle" )  # 정 오른쪽
 b1.up ()
 b1.speed ( 0 )
 b1.pensize(5)
+b1.ht()
 
 b2  =  turtle.Turtle ()  #정 위쪽
 b2.color ( "red" )
